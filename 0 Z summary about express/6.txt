@@ -1,0 +1,145 @@
+
+from the video param middleware:
+
+
+
+168
+00:09:08,420 --> 00:09:11,865
+‫So we no longer have the checkID code
+
+169
+00:09:11,865 --> 00:09:15,910
+‫in the update handler that we just invoked basically,
+
+170
+00:09:15,910 --> 00:09:18,240
+‫but still our ID is checked because
+
+171
+00:09:18,240 --> 00:09:21,470
+‫we have that middleware (router.param('id', tourController.checkID)), so this here.
+
+checkID = (req, res, next, val) =>{
+
+	if(val> tours.length)
+		return res.status(404).json({
+				status: success,
+				data: {
+					message: "invalid ID"
+					}
+					
+			})
+}
+
+172
+00:09:21,470 --> 00:09:23,630
+‫We have that middleware in the stack before it actually hits the update tourController.
+
+174
+00:09:26,750 --> 00:09:30,200
+‫So this middleware is now part of our pipeline ‫as you can imagine it, 
+
+now you might argue ‫that we might simply create a simple function
+
+177
+00:09:35,340 --> 00:09:37,530
+‫which could also check for the ID
+
+178
+00:09:37,530 --> 00:09:40,220
+‫and then call that function inside of
+
+179
+00:09:40,220 --> 00:09:43,910
+‫each of these tour function, and then call it inside
+
+180
+00:09:43,910 --> 00:09:47,830
+‫each of these relevant tour controllers;
+
+
+*************VERY IMPORTANT*********************
+181
+00:09:47,830 --> 00:09:49,410
+‫but that would really go against
+
+182
+00:09:49,410 --> 00:09:52,860
+‫the philosophy of express, where we should always work
+
+183
+00:09:52,860 --> 00:09:55,730
+‫with the middleware stack, so with this pipeline
+
+184
+00:09:55,730 --> 00:10:00,010
+‫as much as we can, okay, and so these functions here,
+
+185
+00:10:00,010 --> 00:10:02,850
+‫they do not have to worry at all about validation.
+
+186
+00:10:02,850 --> 00:10:05,580
+‫Each of these functions has only one purpose
+
+187
+00:10:05,580 --> 00:10:07,540
+‫which is to do what they say,
+
+188
+00:10:07,540 --> 00:10:09,200
+‫so this one just gets the tour,
+
+189
+00:10:09,200 --> 00:10:12,170
+‫this one just creates a tour, this one just updates,
+
+190
+00:10:12,170 --> 00:10:14,650
+‫and this one just deletes, it doesn't check,
+
+191
+00:10:14,650 --> 00:10:17,003
+‫it doesn't have to worry about any of that.
+
+192
+00:10:18,910 --> 00:10:21,060
+‫And if we would now add another controller here
+
+193
+00:10:21,060 --> 00:10:24,630
+‫also depending on the id, well then that would automatically
+
+194
+00:10:24,630 --> 00:10:27,380
+‫also check if the id is invalid
+
+195
+00:10:27,380 --> 00:10:30,960
+‫without us having to do any additional steps.
+
+
+196
+00:10:30,960 --> 00:10:34,620
+‫So this automatically will check for the id
+
+197
+00:10:34,620 --> 00:10:38,670
+‫and so that's really handy and also how
+
+198
+00:10:38,670 --> 00:10:41,450
+‫express apps should work, great.
+
+******************************************************
+
+
+199
+00:10:41,450 --> 00:10:45,810
+‫So we have another tool in our express toolbox that
+
+200
+00:10:45,810 --> 00:10:49,493
+‫we can now use in order to write our express applications.
+

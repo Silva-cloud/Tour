@@ -1,0 +1,66 @@
+
+12
+00:00:33,210 --> 00:00:36,210
+‫So es Lint is basically a program
+
+13
+00:00:36,210 --> 00:00:38,470
+‫that constantly scans our code
+
+14
+00:00:38,470 --> 00:00:40,640
+‫and finds potential coding errors
+
+15
+00:00:40,640 --> 00:00:45,130
+‫or simply bad coding practices that it thinks are wrong.
+
+16
+00:00:45,130 --> 00:00:47,730
+‫It's very, very configurable so that
+
+17
+00:00:47,730 --> 00:00:50,300
+‫we can really fine tune it to our needs,
+
+18
+00:00:50,300 --> 00:00:52,130
+‫and coding habits.
+
+19
+00:00:52,130 --> 00:00:55,740
+‫Now we can also use es Lint for code formatting,
+
+20
+00:00:55,740 --> 00:00:57,700
+‫but we will continue using prettier
+
+21
+00:00:57,700 --> 00:01:00,610
+‫that we already setup earlier for that.
+
+22
+00:01:00,610 --> 00:01:02,526
+‫So we will set up this entire thing
+
+23
+00:01:02,526 --> 00:01:06,240
+‫so that prettier is still the main code formatter
+
+24
+00:01:06,240 --> 00:01:08,730
+‫but based on some es Lint rules
+
+25
+00:01:08,730 --> 00:01:10,130
+‫that we will define.
+
+26
+00:01:10,130 --> 00:01:12,670
+‫And so all that es Lint will do for us
+
+27
+00:01:12,670 --> 00:01:14,780
+‫is to highlight the errors.
+
+
